@@ -1,0 +1,22 @@
+{
+  "name": "lrcurso/admin-laravel",
+  "description": "Package for laravel",
+  "type": "library",
+  "require-dev": {
+    "orchestra/testbench": "3.2"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Leandro Rolim",
+      "email": "superleandromail@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Lrcurso\\Admin\\": "src"
+    }
+  }
+
+}
