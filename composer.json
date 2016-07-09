@@ -12,7 +12,9 @@
       "email": "superleandromail@gmail.com"
     }
   ],
-  "require": {},
+  "require": {
+    "kris/laravel-form-builder": "^1.7"
+  },
   "autoload": {
     "psr-4": {
       "Lrcurso\\Admin\\": "src"
