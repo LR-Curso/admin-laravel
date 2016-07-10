@@ -20,6 +20,17 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        
+
+    }
+
+    /**
+     * Perform post-registration booting of services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'lrcurso_admin');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/langs', 'lrcurso_admin');
     }
 }
