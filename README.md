@@ -1,14 +1,21 @@
 # Admin Laravel
 Generate admin for Laravel
 
-###Instalation
+##Instalation
 - composer require lrcurso/admin-laravel
 
 
-- add ServiceProvider (Lrcurso\Admin\Providers\AdminServiceProvider) to config/app.php
+### add ServiceProvider to config/app.php
+~~~
+Lrcurso\Admin\Providers\AdminServiceProvider::class
+~~~
 
-##TODO's
+### add Middleware to $routeMiddleware in app/Http/Kernel.php
+~~~
+'auth.admin' => \Lrcurso\Admin\Middleware\Authenticate::class,
+~~~
 
-### 1. TODO:
+##TODO
+
 1. create view for list data
 2. create view for insert/update data
