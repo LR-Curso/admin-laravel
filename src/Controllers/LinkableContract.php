@@ -1,7 +1,7 @@
 <?php namespace Lrcurso\Admin\Controllers;
 
 
-use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 interface LinkableContract
 {
@@ -10,6 +10,6 @@ interface LinkableContract
     public static function getTitle(): string;
     public static function getIconClass(): string;
 
-    public function index():Response;
+    public function index():View;
 
 }
