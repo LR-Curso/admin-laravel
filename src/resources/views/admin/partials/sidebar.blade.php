@@ -13,7 +13,7 @@
             </div>
         </div>
         <ul class="sidebar-menu">
-            <li class="header">@lang('lrcurso_admin::sidebar.menu')</li>
+            <li class="header">@lang('lrcurso_admin::admin.menu')</li>
             @foreach(config('lr-admin.controllers') as $controller)
                 @if($controller::showInSidebar())
                 <li class="active">

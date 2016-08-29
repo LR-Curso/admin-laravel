@@ -2,8 +2,14 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        <a href="http://www.lrcurso.com.br"></a><b>LR Curso</b></a>. Admin do site.
+        <a href="{{ trans('lrcurso_admin::admin.url_owner') }}"></a>
+        <b>@lang('lrcurso_admin::admin.title')</b></a>. @lang('lrcurso_admin::admin.subtitle').
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="http://www.lrcurso.com.br">LR Curso</a>.</strong>
+    <strong>
+        @lang('lrcurso_admin::admin.copyright')
+        <a href="{{ trans('lrcurso_admin::admin.url_owner') }}">
+            @lang('lrcurso_admin::admin.owner')
+        </a>.
+    </strong>
 </footer>
