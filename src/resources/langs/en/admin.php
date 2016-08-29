@@ -8,4 +8,6 @@ return [
     'owner' => 'LR Curso',
     'title' => 'LR Curso',
     'subtitle' => 'LR Curso',
+    'profile' => 'Profile',
+    'logout' => 'logout',
 ];
