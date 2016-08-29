@@ -32,5 +32,13 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'lrcurso_admin');
         $this->loadTranslationsFrom(__DIR__.'/../resources/langs', 'lrcurso_admin');
+
+        $this->publishes([
+            __DIR__.'/../resources/assets/' => public_path(''),
+        ], 'public');
+
+        $this->publishes([
+            __DIR__.'/../Config/lr-admin.php' => config_path('lr-admin.php'),
+        ], 'config');
     }
 }
