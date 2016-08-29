@@ -4,6 +4,8 @@
 [![License](https://poser.pugx.org/lrcurso/admin-laravel/license)](https://packagist.org/packages/lrcurso/admin-laravel)
 [![composer.lock](https://poser.pugx.org/lrcurso/admin-laravel/composerlock)](https://packagist.org/packages/lrcurso/admin-laravel)
 [![Coverage Status](https://coveralls.io/repos/github/LR-Curso/admin-laravel/badge.svg?branch=master)](https://coveralls.io/github/LR-Curso/admin-laravel?branch=master)
+[![Build Status](https://travis-ci.org/LR-Curso/admin-laravel.svg?branch=master)](https://travis-ci.org/LR-Curso/admin-laravel)
+
 # Admin Laravel
 Generate admin for Laravel
 

@@ -10,6 +10,7 @@ namespace Lrcurso\Admin\Forms;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\Form;
 
 /**
@@ -41,5 +42,17 @@ abstract class FormModelAbstract
     public function getForm(): Form
     {
         return $this->getFormFromModel($this->getModel(), $this->form_action, $this->method);
+    }
+
+    public function save(Request $request): Model
+    {
+        if ($request->has('id')){
+            return $this
+                ->getModel()
+                ->newQuery()
+                ->where('id', $request->id)
+                ->firstOrFail()->fill();
+        }
+        return $this->getModel()->fill($request->all())->save();
     }
 }
