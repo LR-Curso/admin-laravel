@@ -3,7 +3,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/lrcurso/admin-laravel/v/unstable)](https://packagist.org/packages/lrcurso/admin-laravel)
 [![License](https://poser.pugx.org/lrcurso/admin-laravel/license)](https://packagist.org/packages/lrcurso/admin-laravel)
 [![composer.lock](https://poser.pugx.org/lrcurso/admin-laravel/composerlock)](https://packagist.org/packages/lrcurso/admin-laravel)
-
+[![Coverage Status](https://coveralls.io/repos/github/LR-Curso/admin-laravel/badge.svg?branch=master)](https://coveralls.io/github/LR-Curso/admin-laravel?branch=master)
 # Admin Laravel
 Generate admin for Laravel
 
