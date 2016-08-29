@@ -13,6 +13,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-
+        return view('lrcurso_admin::admin.dashboard');
     }
 }
