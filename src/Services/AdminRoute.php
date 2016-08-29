@@ -9,7 +9,6 @@ class AdminRoute
     {
         Route::group([
             'prefix' => "admin",
-            'middleware' => 'web',
         ], function (){
             Route::get('login', '\\Lrcurso\\Admin\\Controllers\\AuthController@getLogin');
             Route::post('login', [
@@ -20,6 +19,15 @@ class AdminRoute
                 'uses' => '\\Lrcurso\\Admin\\Controllers\\AuthController@logout',
                 'as' => 'admin.login.logout'
             ]);
+        });
+    }
+
+    public static function admin()
+    {
+        Route::group([
+            'middleware' => 'auth.admin'
+        ], function (){
+            Route::get('/admin', '\\Lrcurso\\Admin\\Controllers\\DashboardController@index');
         });
     }
 }
