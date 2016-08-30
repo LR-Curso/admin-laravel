@@ -1,30 +1,64 @@
 <?php namespace Lrcurso\Admin\Controllers;
 
 
+/**
+ * Trait LinkableTrait
+ * @package Lrcurso\Admin\Controllers
+ */
 trait LinkableTrait
 {
-    protected static $show_in_sidebar = true;
-
-    protected  static $description = null;
-
-    protected static $title = null;
-
-    protected static $icon_class = "fa fa-cogs";
-
+    /**
+     * @return bool
+     */
     public static function showInSidebar(): bool
     {
-        return static::$show_in_sidebar;
+        if(property_exists(static::class, 'show_in_sidebar')){
+            return static::$show_in_sidebar;
+        }
+        return true;
     }
+
+    /**
+     * @return string
+     */
     public static function getDescription(): string
     {
-        return static::$description ?? trans(class_basename(self::class).'::description');
+        if(property_exists(static::class, 'description')){
+            return static::$description;
+        }
+        return trans(class_basename(self::class).'::description');
     }
+
+    /**
+     * @return string
+     */
     public static function getTitle(): string
     {
-        return static::$title ?? trans(class_basename(self::class).'::title');
+        if(property_exists(static::class, 'title')){
+            return static::$title;
+        }
+        return trans(class_basename(self::class).'::title');
     }
+
+    /**
+     * @return string
+     */
     public static function getIconClass(): string
     {
-        return static::$icon_class;
+        if(property_exists(static::class, 'icon_class')){
+            return static::$icon_class;
+        }
+        return "fa fa-cogs";
+    }
+
+    /**
+     * @return string
+     */
+    public static function getRoute(): string
+    {
+        if(property_exists(static::class, 'route')){
+            return static::$route;
+        }
+        return str_slug(snake_case(class_basename(self::class)));
     }
 }
