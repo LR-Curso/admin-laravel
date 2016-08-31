@@ -31,7 +31,7 @@ trait FormGenerateTrait
         ]);
 
         foreach($form_fields as $field => $values){
-            $form->add($field, $values['type'] ?? 'text', $values['options'] ?? []);
+            $form->add((is_int($field))?$values:$field, $values['type'] ?? 'text', $values['options'] ?? []);
         }
         $form->add('Salvar', 'submit', ['attr' => ['class' => 'btn btn-primary']]);
         return $form;
@@ -40,6 +40,8 @@ trait FormGenerateTrait
 
     /**
      * @param Model $model
+     * @param string $form_action
+     * @param string $method
      * @return Form
      */
     protected function getFormFromModel(
