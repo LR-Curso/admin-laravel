@@ -37,7 +37,7 @@ trait LinkableTrait
         if(property_exists(static::class, 'title')){
             return static::$title;
         }
-        return trans(class_basename(self::class).'::title');
+        return trans(snake_case(class_basename(self::class).'::title'));
     }
 
     /**
