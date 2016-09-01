@@ -25,9 +25,14 @@ class AdminRoute
     public static function admin()
     {
         Route::group([
+            'prefix' => '/admin',
             'middleware' => 'auth.admin'
         ], function (){
-            Route::get('/admin', '\\Lrcurso\\Admin\\Controllers\\DashboardController@index');
+            Route::get('/', '\\Lrcurso\\Admin\\Controllers\\DashboardController@index');
+
+            foreach (config('lr-admin.controllers') as $controller) {
+                Route::resource($controller::getRoute(), "\\".$controller);
+            }
         });
     }
 }
