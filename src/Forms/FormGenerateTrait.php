@@ -50,6 +50,6 @@ trait FormGenerateTrait
         string $method = "post"
     ): Form
     {
-        return $this->getFormFromArray($model->getFillable(), $form_action, $method);
+        return $this->getFormFromArray($model->getFillable(), $form_action, $method, ($model->id)?$model:null);
     }
 }
