@@ -20,13 +20,13 @@ trait FormGenerateTrait
     protected function getFormFromArray(
         array $form_fields,
         string $form_action = "",
-        string $method = "post",
+        string $method = "POST",
         Model $model = null
     ): Form
     {
         $form = $this->plain([
             'url' => $form_action,
-            'method' => 'post',
+            'method' => $method,
             'model' => $model,
         ]);
 
@@ -47,7 +47,7 @@ trait FormGenerateTrait
     protected function getFormFromModel(
         Model $model,
         string $form_action = "",
-        string $method = "post"
+        string $method = "POST"
     ): Form
     {
         return $this->getFormFromArray($model->getFillable(), $form_action, $method, ($model->id)?$model:null);
