@@ -9,21 +9,50 @@
 # Admin Laravel
 Generate admin for Laravel
 
-##Instalation
-- composer require lrcurso/admin-laravel
+###Installation
+
+```
+composer require lrcurso/admin-laravel
+```
+
+Or manually by modifying `composer.json` file:
+
+``` json
+{
+    "require": {
+        "lrcurso/admin-laravel": "1.*"
+    }
+}
+```
+
+run `composer install`
+
+Then add Service provider to `config/app.php`
+
+``` php
+    'providers' => [
+        // ...
+        Lrcurso\Admin\Providers\AdminServiceProvider::class,
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+    ]
+```
+
+And Facade (also in `config/app.php`)
+
+``` php
+    'aliases' => [
+        // ...
+        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class
+    ]
+
+```
 
 
-### add ServiceProvider to config/app.php
+And add Middleware to `app/Http/Kernel.php`
+~~~ php
+    $routeMiddleware => [
+        //...
+        'auth.admin' => \Lrcurso\Admin\Middleware\Authenticate::class,
+    ]
 ~~~
-Lrcurso\Admin\Providers\AdminServiceProvider::class
-~~~
 
-### add Middleware to $routeMiddleware in app/Http/Kernel.php
-~~~
-'auth.admin' => \Lrcurso\Admin\Middleware\Authenticate::class,
-~~~
-
-##TODO
-
-1. create view for list data
-2. create view for insert/update data
