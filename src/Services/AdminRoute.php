@@ -15,7 +15,7 @@ class AdminRoute
                 'uses' => '\\Lrcurso\\Admin\\Controllers\\AuthController@postLogin',
                 'as' => 'admin.login.post'
             ]);
-            Route::post('logout', [
+            Route::get('logout', [
                 'uses' => '\\Lrcurso\\Admin\\Controllers\\AuthController@logout',
                 'as' => 'admin.login.logout'
             ]);
