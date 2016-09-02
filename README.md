@@ -20,7 +20,7 @@ Or manually by modifying `composer.json` file:
 ``` json
 {
     "require": {
-        "lrcurso/admin-laravel": "1.*"
+        "lrcurso/admin-laravel": "0.*"
     }
 }
 ```
