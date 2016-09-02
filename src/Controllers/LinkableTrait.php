@@ -12,8 +12,8 @@ trait LinkableTrait
      */
     public static function showInSidebar(): bool
     {
-        if(property_exists(static::class, 'show_in_sidebar')){
-            return static::$show_in_sidebar;
+        if(method_exists(static::class, 'hasPermission')){
+            return static::hasPermission();
         }
         return true;
     }
