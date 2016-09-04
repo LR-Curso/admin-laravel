@@ -21,7 +21,7 @@ class AdminServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/lr-admin.php', 'lr-curso'
+            __DIR__.'/../Config/lr-admin.php', 'lr-admin'
         );
     }
 
