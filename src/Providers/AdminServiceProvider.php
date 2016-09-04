@@ -20,7 +20,9 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->mergeConfigFrom(
+            __DIR__.'/../Config/lr-admin.php', 'lr-curso'
+        );
     }
 
     /**
@@ -40,9 +42,5 @@ class AdminServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Config/lr-admin.php' => config_path('lr-admin.php'),
         ], 'config');
-
-        $this->mergeConfigFrom(
-            __DIR__.'/../Config/lr-admin.php', 'lr-curso'
-        );
     }
 }
