@@ -52,7 +52,7 @@
                                 <a href="#{{ Auth::user()->id }}" class="btn btn-default btn-flat">@lang('lrcurso_admin::admin.profile')</a>
                             </div>
                             <div class="pull-right">
-                                <a href="{{ url(config('lr-config.logout_url')) }}" class="btn btn-default btn-flat">@lang('lrcurso_admin::admin.logout')</a>
+                                <a href="{{ url(config('lr-admin.logout_url')) }}" class="btn btn-default btn-flat">@lang('lrcurso_admin::admin.logout')</a>
                             </div>
                         </li>
                     </ul>
