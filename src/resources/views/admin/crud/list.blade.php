@@ -23,7 +23,7 @@
         		<thead>
         			<tr>
 						@foreach(array_values($list_display ?? $dataset->first()->getFillable()) as $column)
-        				    <th class="sorting">@lang('lrcurso_admin::models.'.$column)</th>
+        				    <th class="sorting">@lang('admin.list.'.$column)</th>
 						@endforeach
                             <th class="text-right">Funções</th>
         			</tr>
