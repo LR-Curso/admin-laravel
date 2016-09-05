@@ -39,7 +39,7 @@ trait FormGenerateTrait
                 $values['options'] = [];
             }
             if (!isset($values['options']['label'])){
-                $values['options']['label'] = trans(snake_case(class_basename(self::class).".".$field));
+                $values['options']['label'] = "admin.crud.".$field;
             }
             $form->add($field, $values['type'] ?? 'text', $values['options']);
         }
