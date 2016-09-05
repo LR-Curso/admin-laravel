@@ -22,7 +22,7 @@
         	<table class="table table-striped table-hover dataTable" id="dados" role="grid">
         		<thead>
         			<tr>
-						@foreach(array_values($list_display ?? $dataset->first()->getFillable()) as $column)
+						@foreach(array_values($list_display) as $column)
         				    <th class="sorting">@lang('admin.list.'.$column)</th>
 						@endforeach
                             <th class="text-right">Funções</th>
@@ -31,7 +31,7 @@
         		<tbody>
 				@forelse($dataset as $data)
         			<tr>
-					@foreach(array_values($list_display ?? $dataset->first()->getFillable()) as $column)
+					@foreach(array_values($list_display) as $column)
                         <td>{{ $data->$column }}</td>
 					@endforeach
 						<td class="text-right">

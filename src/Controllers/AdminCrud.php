@@ -33,9 +33,15 @@ trait AdminCrud
      */
     public function index(): View
     {
+        if(property_exists(self::class, 'list_display')){
+            $list_display = $this->list_display;
+        } else {
+            $list_display = $this->getModel()->getFillable();
+        }
         return view('lrcurso_admin::admin.crud.list', [
             'title' => $this->getTitle(),
             'dataset' => $this->getModel()->paginate(),
+            'list_display' => $list_display,
         ]);
     }
 
