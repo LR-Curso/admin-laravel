@@ -18,7 +18,7 @@ class Authenticate
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->guest()) {
-            return redirect()->guest('\admin\login');
+            return redirect()->guest(config('lr-admin.login_url'));
         }
 
         return $next($request);
