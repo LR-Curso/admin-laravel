@@ -31,7 +31,17 @@ trait FormGenerateTrait
         ]);
 
         foreach($form_fields as $field => $values){
-            $form->add((is_int($field))?$values:$field, $values['type'] ?? 'text', $values['options'] ?? []);
+            if(!is_array($values)) {
+                $field = $values;
+                $values = [];
+            }
+            if(!isset($values['options'])){
+                $values['options'] = [];
+            }
+            if (!isset($values['options']['label'])){
+                $values['options']['label'] = trans(snake_case(class_basename(self::class).".".$field));
+            }
+            $form->add($field, $values['type'] ?? 'text', $values['options']);
         }
         $form->add('Salvar', 'submit', ['attr' => ['class' => 'btn btn-primary']]);
         return $form;

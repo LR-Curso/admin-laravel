@@ -23,7 +23,7 @@
         		<thead>
         			<tr>
 						@foreach(array_values($list_display) as $column)
-        				    <th class="sorting">@lang('admin.list.'.$column)</th>
+        				    <th class="sorting">@lang('admin.crud.'.$column)</th>
 						@endforeach
                             <th class="text-right">Funções</th>
         			</tr>
@@ -35,8 +35,6 @@
                         <td>{{ $data->$column }}</td>
 					@endforeach
 						<td class="text-right">
-
-
                             <form action="{{ request()->getUri() }}/{{ $data->id }}" method="post">
                                 <input type="hidden" value="DELETE" name="_method">
                                 {!! csrf_field() !!}
@@ -69,25 +67,3 @@
     </div>
 </div>
 @endsection
-{{--@section('css')--}}
-    {{--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" integrity="sha384-0+oHgv887Bf6R5zNNUEA1S3uGi50ThGLGlBPj2b45pM+4waOZ+tTOV5EgvHS9cv4" crossorigin="anonymous">--}}
-{{--@endsection--}}
-
-{{--@section('scripts')--}}
-	{{--@parent--}}
-	{{--<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js" integrity="sha384-QyXw3+FbFWMGvHERjd2qCYZRk+b2Pjmtq15C/hioWsjhRQ7ogFIq/TyxV45EzU1H" crossorigin="anonymous"></script>--}}
-	{{--<script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js" integrity="sha384-fo515/EdB6QvtVyTtvtq4h0AeRxSvuTaUvc+Mg3HOeBUyozTDPBl53MpXK4CEW0+" crossorigin="anonymous"></script>--}}
-    {{--<script>--}}
-        {{--$(document).ready(function() {--}}
-            {{--$('#dados').DataTable({--}}
-                {{--"paging": false,--}}
-                {{--"info":     false,--}}
-                {{--"filter":     false,--}}
-                {{--"language": {--}}
-                    {{--"decimal": ",",--}}
-                    {{--"thousands": "."--}}
-                {{--}--}}
-            {{--});--}}
-        {{--} );--}}
-    {{--</script>--}}
-{{--@endsection--}}
