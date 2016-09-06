@@ -62,7 +62,7 @@ trait AdminCrud
             ->getModel()
             ->fill($this->request()->all())
             ->save();
-        redirect()->action("\\".self::class."@index");
+        return redirect()->action("\\".self::class."@index");
     }
 
     /**
