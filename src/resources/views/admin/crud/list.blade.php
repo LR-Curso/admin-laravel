@@ -32,7 +32,11 @@
 				@forelse($dataset as $data)
         			<tr>
 					@foreach(array_values($list_display) as $column)
-                        <td>{{ $data->$column }}</td>
+                        <?php $v = $data; ?>
+                        @foreach(explode('.', $column) as $c)
+                                <?php $v = $v->$c; ?>
+                        @endforeach
+                            <td>{{ $v }}</td>
 					@endforeach
 						<td class="text-right">
                             <form action="{{ request()->getUri() }}/{{ $data->id }}" method="post">
