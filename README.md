@@ -56,3 +56,9 @@ And add Middleware to `app/Http/Kernel.php`
     ]
 ~~~
 
+##TODO
+
+- create Units Tests
+- create documentation (how to use)
+- add config for modifier the dashboard home (default: "DashBoardControler@index")
+- add config for modifier the route root (default: "\admin")
