@@ -8,62 +8,25 @@
     <section class="content">
         <!-- Info boxes -->
         <div class="row cards">
+            @foreach(config('lr-admin.controllers') as $controller)
+                @if($controller::showInSidebar())
+                    <div class="col-lg-3 col xs-6">
+                        <div class="small-box bg-blue">
+                            <div class="inner">
+                                <h3>&nbsp;</h3>
 
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-aqua"><i class="fa fa-home"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Usuários</span>
-                        <span class="info-box-number">20</span>
+                                <p>{{ $controller::getTitle() }}</p>
+                            </div>
+                            <div class="icon">
+                                <i class='{{ $controller::getIconClass() }}'></i>
+                            </div>
+                            <a href="{{ action("\\".$controller.'@index'), [], false }}" class="small-box-footer" title="{{ $controller::getDescription() }}">
+                                Acessar <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-red"><i class="fa fa-map-marker"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Visítas</span>
-                        <span class="info-box-number">50</span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-
-            <!-- fix for small devices only -->
-            <div class="clearfix visible-sm-block"></div>
-
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Visualizações</span>
-                        <span class="info-box-number">30</span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-yellow"><i class="fa fa-user-plus"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Usuários online</span>
-                        <span class="info-box-number">1</span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
+                @endif
+            @endforeach
         </div>
     </section>
 @endsection
