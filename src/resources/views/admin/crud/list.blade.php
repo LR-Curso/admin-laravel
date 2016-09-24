@@ -43,7 +43,7 @@
                                 <input type="hidden" value="DELETE" name="_method">
                                 {!! csrf_field() !!}
                                     <div class="btn-group">
-                                        <a href="{{ request()->getUri() }}/{{ $data->id }}/edit" title="editar" class="btn btn-success">
+                                        <a href="{{ request()->getPathInfo() }}/{{ $data->id }}/edit" title="editar" class="btn btn-success">
                                             <i class="fa fa-pencil"></i>
                                         </a>
 
