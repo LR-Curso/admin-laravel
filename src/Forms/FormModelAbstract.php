@@ -3,19 +3,16 @@
  * Created by PhpStorm.
  * User: leandro
  * Date: 15/07/2016
- * Time: 13:58
+ * Time: 13:58.
  */
-
 namespace Lrcurso\Admin\Forms;
-
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\Form;
 
 /**
- * Class FormModelAbstract
- * @package Lrcurso\Admin\Forms
+ * Class FormModelAbstract.
  */
 abstract class FormModelAbstract
 {
@@ -46,13 +43,14 @@ abstract class FormModelAbstract
 
     public function save(Request $request): Model
     {
-        if ($request->has('id')){
+        if ($request->has('id')) {
             return $this
                 ->getModel()
                 ->newQuery()
                 ->where('id', $request->id)
                 ->firstOrFail()->fill();
         }
+
         return $this->getModel()->fill($request->all())->save();
     }
 }

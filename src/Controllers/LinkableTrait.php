@@ -1,9 +1,9 @@
-<?php namespace Lrcurso\Admin\Controllers;
+<?php
 
+namespace Lrcurso\Admin\Controllers;
 
 /**
- * Trait LinkableTrait
- * @package Lrcurso\Admin\Controllers
+ * Trait LinkableTrait.
  */
 trait LinkableTrait
 {
@@ -12,9 +12,10 @@ trait LinkableTrait
      */
     public static function showInSidebar(): bool
     {
-        if(method_exists(static::class, 'hasPermission')){
+        if (method_exists(static::class, 'hasPermission')) {
             return static::hasPermission();
         }
+
         return true;
     }
 
@@ -23,9 +24,10 @@ trait LinkableTrait
      */
     public static function getDescription(): string
     {
-        if(property_exists(static::class, 'description')){
+        if (property_exists(static::class, 'description')) {
             return static::$description;
         }
+
         return trans(class_basename(self::class).'::description');
     }
 
@@ -34,9 +36,10 @@ trait LinkableTrait
      */
     public static function getTitle(): string
     {
-        if(property_exists(static::class, 'title')){
+        if (property_exists(static::class, 'title')) {
             return static::$title;
         }
+
         return trans(snake_case(class_basename(self::class).'.title'));
     }
 
@@ -45,10 +48,11 @@ trait LinkableTrait
      */
     public static function getIconClass(): string
     {
-        if(property_exists(static::class, 'icon_class')){
+        if (property_exists(static::class, 'icon_class')) {
             return static::$icon_class;
         }
-        return "fa fa-cogs";
+
+        return 'fa fa-cogs';
     }
 
     /**
@@ -56,9 +60,10 @@ trait LinkableTrait
      */
     public static function getRoute(): string
     {
-        if(property_exists(static::class, 'route')){
+        if (property_exists(static::class, 'route')) {
             return static::$route;
         }
+
         return str_slug(snake_case(class_basename(self::class)));
     }
 }

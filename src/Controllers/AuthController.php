@@ -3,11 +3,9 @@
  * Created by PhpStorm.
  * User: leandro
  * Date: 27/08/16
- * Time: 15:35
+ * Time: 15:35.
  */
-
 namespace Lrcurso\Admin\Controllers;
-
 
 use Illuminate\Contracts\Routing\ResponseFactory as Response;
 use Illuminate\Http\Request;
@@ -17,7 +15,7 @@ class AuthController extends Controller
 {
     public function getLogin(Response $response)
     {
-        return $response->view("lrcurso_admin::admin.auth.login", [
+        return $response->view('lrcurso_admin::admin.auth.login', [
             'action' => route('admin.login.post'),
         ]);
     }
@@ -34,7 +32,7 @@ class AuthController extends Controller
             return redirect()->intended('/admin');
         } else {
             return redirect()->back()->withErrors([
-                'login' => trans('lrcurso_admin::login.invalid')
+                'login' => trans('lrcurso_admin::login.invalid'),
             ]);
         }
     }
@@ -44,6 +42,5 @@ class AuthController extends Controller
         $auth->logout();
 
         return redirect('\admin');
-
     }
 }

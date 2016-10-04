@@ -1,6 +1,6 @@
 <?php
-namespace Lrcurso\Admin\Forms;
 
+namespace Lrcurso\Admin\Forms;
 
 use Illuminate\Database\Eloquent\Model;
 use Kris\LaravelFormBuilder\Form;
@@ -19,40 +19,39 @@ trait FormGenerateTrait
      */
     protected function getFormFromArray(
         array $form_fields,
-        string $form_action = "",
-        string $method = "POST",
+        string $form_action = '',
+        string $method = 'POST',
         Model $model = null
-    ): Form
-    {
+    ): Form {
         $form = $this->plain([
             'url' => $form_action,
             'method' => $method,
             'model' => $model,
         ]);
 
-        foreach($form_fields as $field => $values){
-            if(!is_array($values)) {
+        foreach ($form_fields as $field => $values) {
+            if (! is_array($values)) {
                 $field = $values;
                 $values = [];
             }
-            if(!isset($values['options'])){
+            if (! isset($values['options'])) {
                 $values['options'] = [];
             }
-            if (!isset($values['options']['label'])){
-                $values['options']['label'] = trans("admin.crud.".$field);
+            if (! isset($values['options']['label'])) {
+                $values['options']['label'] = trans('admin.crud.'.$field);
             }
-            if (str_contains($field, "_id")){
+            if (str_contains($field, '_id')) {
                 $values['type'] = 'entity';
                 $values['options']['empty_value'] = trans('admin.crud.empty_value');
-                $values['options']['class'] = "\\App\\".studly_case(explode('_', $field)[0]);
+                $values['options']['class'] = '\\App\\'.studly_case(explode('_', $field)[0]);
                 $values['options']['property'] = app($values['options']['class'])->getFillable()[0];
             }
             $form->add($field, $values['type'] ?? 'text', $values['options']);
         }
         $form->add('Salvar', 'submit', ['attr' => ['class' => 'btn btn-primary']]);
+
         return $form;
     }
-
 
     /**
      * @param Model $model
@@ -62,10 +61,9 @@ trait FormGenerateTrait
      */
     protected function getFormFromModel(
         Model $model,
-        string $form_action = "",
-        string $method = "POST"
-    ): Form
-    {
-        return $this->getFormFromArray($model->getFillable(), $form_action, $method, ($model->id)?$model:null);
+        string $form_action = '',
+        string $method = 'POST'
+    ): Form {
+        return $this->getFormFromArray($model->getFillable(), $form_action, $method, ($model->id) ? $model : null);
     }
 }
