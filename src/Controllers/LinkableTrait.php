@@ -12,8 +12,8 @@ trait LinkableTrait
      */
     public static function showInSidebar(): bool
     {
-        if (method_exists(self::class, 'hasPermission')) {
-            return self::hasPermission();
+        if (method_exists(static::class, 'hasPermission')) {
+            return static::hasPermission();
         }
 
         return true;
@@ -24,11 +24,11 @@ trait LinkableTrait
      */
     public static function getDescription(): string
     {
-        if (property_exists(self::class, 'description')) {
-            return self::$description;
+        if (property_exists(static::class, 'description')) {
+            return static::$description;
         }
 
-        return trans(class_basename(self::class).'::description');
+        return trans(class_basename(static::class).'::description');
     }
 
     /**
@@ -36,11 +36,11 @@ trait LinkableTrait
      */
     public static function getTitle(): string
     {
-        if (property_exists(self::class, 'title')) {
-            return self::$title;
+        if (property_exists(static::class, 'title')) {
+            return static::$title;
         }
 
-        return trans(snake_case(class_basename(self::class).'.title'));
+        return trans(snake_case(class_basename(static::class).'.title'));
     }
 
     /**
@@ -48,8 +48,8 @@ trait LinkableTrait
      */
     public static function getIconClass(): string
     {
-        if (property_exists(self::class, 'icon_class')) {
-            return self::$icon_class;
+        if (property_exists(static::class, 'icon_class')) {
+            return static::$icon_class;
         }
 
         return 'fa fa-cogs';
@@ -60,10 +60,10 @@ trait LinkableTrait
      */
     public static function getRoute(): string
     {
-        if (property_exists(self::class, 'route')) {
-            return self::$route;
+        if (property_exists(static::class, 'route')) {
+            return static::$route;
         }
 
-        return str_slug(snake_case(class_basename(self::class)));
+        return str_slug(snake_case(class_basename(static::class)));
     }
 }
