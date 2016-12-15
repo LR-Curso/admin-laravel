@@ -6,6 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/LR-Curso/admin-laravel/badge.svg?branch=master)](https://coveralls.io/github/LR-Curso/admin-laravel?branch=master)
 [![Build Status](https://travis-ci.org/LR-Curso/admin-laravel.svg?branch=master)](https://travis-ci.org/LR-Curso/admin-laravel)
 [![Build Status](https://styleci.io/repos/63009331/shield)](https://styleci.io/repos/63009331)
+[![Issue Count](https://codeclimate.com/github/LR-Curso/admin-laravel/badges/issue_count.svg)](https://codeclimate.com/github/LR-Curso/admin-laravel)
 
 # Admin Laravel
 Generate admin for Laravel
