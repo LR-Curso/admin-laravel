@@ -34,7 +34,7 @@ trait AdminCrud
      */
     public function index(): View
     {
-        if (property_exists(self::class, 'list_display')) {
+        if (property_exists(static::class, 'list_display')) {
             $list_display = $this->list_display;
         } else {
             $list_display = $this->getModel()->getFillable();
@@ -53,7 +53,7 @@ trait AdminCrud
     public function create()
     {
         return view('lrcurso_admin::admin.crud.form', [
-            'form' => $this->getFormFromModel($this->getModel(), action('\\'.self::class.'@store')),
+            'form' => $this->getFormFromModel($this->getModel(), action('\\'.static::class.'@store')),
             'title' => $this->getTitle(),
         ]);
     }
@@ -65,7 +65,7 @@ trait AdminCrud
             ->fill($this->request()->all())
             ->save();
 
-        return redirect()->action('\\'.self::class.'@index');
+        return redirect()->action('\\'.static::class.'@index');
     }
 
     /**
@@ -77,7 +77,7 @@ trait AdminCrud
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
 
         return view('lrcurso_admin::admin.crud.form', [
-            'form' => $this->getFormFromModel($model, action('\\'.self::class.'@update', [$id]), 'PUT'),
+            'form' => $this->getFormFromModel($model, action('\\'.static::class.'@update', [$id]), 'PUT'),
             'title' => $this->getTitle(),
         ]);
     }
@@ -87,7 +87,7 @@ trait AdminCrud
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
         $model->fill($this->request()->all())->save();
 
-        return redirect()->action('\\'.self::class.'@index');
+        return redirect()->action('\\'.static::class.'@index');
     }
 
     public function destroy($id)
@@ -95,7 +95,7 @@ trait AdminCrud
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
         $model->delete();
 
-        return redirect()->action('\\'.self::class.'@index');
+        return redirect()->action('\\'.static::class.'@index');
     }
 
     /**
