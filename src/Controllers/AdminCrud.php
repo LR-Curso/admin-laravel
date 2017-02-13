@@ -29,21 +29,23 @@ trait AdminCrud
      */
     abstract public function getTitle():string;
 
+    private function list_display()
+    {
+        if (property_exists($this, 'list_display')) {
+            return $this->list_display;
+        }
+        return $this->getModel()->getFillable();
+    }
+
     /**
      * @return View
      */
     public function index(): View
     {
-        if (property_exists($this, 'list_display')) {
-            $list_display = $this->list_display;
-        } else {
-            $list_display = $this->getModel()->getFillable();
-        }
-
         return view('lrcurso_admin::admin.crud.list', [
             'title' => $this->getTitle(),
             'dataset' => $this->getModel()->paginate(),
-            'list_display' => $list_display,
+            'list_display' => $this->list_display(),
         ]);
     }
 
