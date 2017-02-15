@@ -43,7 +43,7 @@ trait FormGenerateTrait
             if (str_contains($field, '_id')) {
                 $values['type'] = 'entity';
                 $values['options']['empty_value'] = trans('admin.crud.empty_value');
-                $values['options']['class'] = '\\App\\'.studly_case(explode('_id', $field)[0]);
+                $values['options']['class'] = env('MODEL_NS', '\\App\\').studly_case(explode('_id', $field)[0]);
                 $values['options']['property'] = app($values['options']['class'])->getFillable()[0];
             }
             $form->add($field, $values['type'] ?? 'text', $values['options']);

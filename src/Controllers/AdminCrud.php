@@ -29,12 +29,20 @@ trait AdminCrud
      */
     abstract public function getTitle():string;
 
-    private function list_display()
+    protected function list_display()
     {
         if (property_exists($this, 'list_display')) {
             return $this->list_display;
         }
         return $this->getModel()->getFillable();
+    }
+
+    protected function getForm($form_action, $method='POST', Model $model=null)
+    {
+        if(property_exists($this, 'form_fields')){
+            return $this->getFormFromArray($this->form_fields, $form_action, $method, $model);
+        }
+        return $this->getFormFromModel($model ?? $this->getModel(), $form_action, $method);
     }
 
     /**
@@ -55,7 +63,7 @@ trait AdminCrud
     public function create()
     {
         return view('lrcurso_admin::admin.crud.form', [
-            'form' => $this->getFormFromModel($this->getModel(), action('\\'.static::class.'@store')),
+            'form' => $this->getForm(action('\\'.static::class.'@store')),
             'title' => $this->getTitle(),
         ]);
     }
@@ -79,7 +87,7 @@ trait AdminCrud
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
 
         return view('lrcurso_admin::admin.crud.form', [
-            'form' => $this->getFormFromModel($model, action('\\'.static::class.'@update', [$id]), 'PUT'),
+            'form' => $this->getForm(action('\\'.static::class.'@update', [$id]), 'PUT'),
             'title' => $this->getTitle(),
         ]);
     }
