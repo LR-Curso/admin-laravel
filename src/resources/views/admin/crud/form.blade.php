@@ -24,6 +24,11 @@
 @section('css')
     @parent
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1-rc.1/css/select2.min.css" integrity="sha384-wCtV4+Y0Qc1RNg341xqADYvciqiG4lgd7Jf6Udp0EQ0PoEv83t+MLRtJyaO5vAEh" crossorigin="anonymous">
+    <style>
+        span.select2.select2-container.select2-container--default.select2-container--focus:before{
+            content: '<br>';
+        }
+    </style>
 @endsection
 
 @section('scripts')
