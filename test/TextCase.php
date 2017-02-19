@@ -5,6 +5,7 @@
  * Date: 09/07/2016
  * Time: 10:41.
  */
+
 namespace Lrcurso\Tests;
 
 use Orchestra\Testbench\TestCase;
