@@ -58,7 +58,7 @@ And add Middleware to `app/Http/Kernel.php`
     ]
 ~~~
 
-Final with:
+Last step:
 ~~~ bash
     php artisan vendor:publish
 ~~~
