@@ -58,6 +58,12 @@ And add Middleware to `app/Http/Kernel.php`
     ]
 ~~~
 
+Final with:
+~~~ bash
+    php artisan vendor:publish
+~~~
+
+
 ##TODO
 
 - create Units Tests
