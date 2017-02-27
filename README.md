@@ -8,8 +8,12 @@
 [![Build Status](https://styleci.io/repos/63009331/shield)](https://styleci.io/repos/63009331)
 [![Issue Count](https://codeclimate.com/github/LR-Curso/admin-laravel/badges/issue_count.svg)](https://codeclimate.com/github/LR-Curso/admin-laravel)
 
+
 # Admin Laravel
 Generate admin for Laravel
+
+[![Feature Requests](http://feathub.com/LR-Curso/admin-laravel?format=svg)](http://feathub.com/LR-Curso/admin-laravel)
+
 
 ###Installation
 
