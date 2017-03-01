@@ -2,9 +2,9 @@
 
 namespace Lrcurso\Admin\Controllers;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 use Lrcurso\Admin\Forms\FormGenerateTrait;
 
 /**
@@ -34,14 +34,16 @@ trait AdminCrud
         if (property_exists($this, 'list_display')) {
             return $this->list_display;
         }
+
         return $this->getModel()->getFillable();
     }
 
-    protected function getForm($form_action, $method='POST', Model $model=null)
+    protected function getForm($form_action, $method = 'POST', Model $model = null)
     {
-        if(property_exists($this, 'form_fields')){
+        if (property_exists($this, 'form_fields')) {
             return $this->getFormFromArray($this->form_fields, $form_action, $method, $model);
         }
+
         return $this->getFormFromModel($model ?? $this->getModel(), $form_action, $method);
     }
 

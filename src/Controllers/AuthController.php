@@ -5,11 +5,12 @@
  * Date: 27/08/16
  * Time: 15:35.
  */
+
 namespace Lrcurso\Admin\Controllers;
 
-use Illuminate\Contracts\Routing\ResponseFactory as Response;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Factory as Auth;
+use Illuminate\Contracts\Routing\ResponseFactory as Response;
 
 class AuthController extends Controller
 {
