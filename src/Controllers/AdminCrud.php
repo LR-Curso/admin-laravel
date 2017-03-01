@@ -87,7 +87,7 @@ trait AdminCrud
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
 
         return view('lrcurso_admin::admin.crud.form', [
-            'form' => $this->getForm(action('\\'.static::class.'@update', [$id]), 'PUT'),
+            'form' => $this->getForm(action('\\'.static::class.'@update', [$id]), 'PUT', $model),
             'title' => $this->getTitle(),
         ]);
     }
