@@ -24,10 +24,6 @@ trait AdminCrud
      */
     protected $request = null;
 
-    /**
-     * @return string
-     */
-    abstract public function getTitle():string;
 
     protected function list_display()
     {
