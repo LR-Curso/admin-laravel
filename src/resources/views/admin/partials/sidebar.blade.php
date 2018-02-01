@@ -17,7 +17,7 @@
             @foreach(config('lr-admin.controllers') as $controller)
                 @if($controller::showInSidebar())
                 <li class="active">
-                    <a href="{{ action("\\".$controller.'@index'), [], false }}" title="{{ $controller::getDescription() }}">
+                    <a href="{{ action("\\".$controller.'@index', [], false) }}" title="{{ $controller::getDescription() }}">
                         <i class='{{ $controller::getIconClass() }}'></i>
                         <span>{{ $controller::getTitle() }}</span>
                     </a>

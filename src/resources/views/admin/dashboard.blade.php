@@ -20,7 +20,7 @@
                             <div class="icon">
                                 <i class='{{ $controller::getIconClass() }}'></i>
                             </div>
-                            <a href="{{ action("\\".$controller.'@index'), [], false }}" class="small-box-footer" title="{{ $controller::getDescription() }}">
+                            <a href="{{ action("\\".$controller.'@index', [], false) }}" class="small-box-footer" title="{{ $controller::getDescription() }}">
                                 Acessar <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
