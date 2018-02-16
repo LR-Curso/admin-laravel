@@ -23,11 +23,15 @@ class AdminRoute
         });
     }
 
-    public static function admin(string $dashboard_action = '\\Lrcurso\\Admin\\Controllers\\DashboardController@index')
+    public static function admin(
+        string $dashboard_action = '\\Lrcurso\\Admin\\Controllers\\DashboardController@index',
+        string $prefix = 'admin',
+        string $middleware = 'auth.admin'
+    )
     {
         Route::group([
-            'prefix' => '/admin',
-            'middleware' => 'auth.admin',
+            'prefix' => $prefix,
+            'middleware' => $middleware,
         ], function () use ($dashboard_action) {
             Route::get('/', $dashboard_action);
 
