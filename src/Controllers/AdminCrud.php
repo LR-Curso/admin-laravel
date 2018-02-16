@@ -10,14 +10,24 @@ use Lrcurso\Admin\Forms\FormGenerateTrait;
 /**
  * Class AdminCrud.
  */
-trait AdminCrud
+trait   AdminCrud
 {
     use FormGenerateTrait;
+
+    /**
+     * @var array
+     */
+    protected $params = [];
 
     /**
      * @return Model
      */
     abstract protected function getModel(): Model;
+
+    /**
+     * @return string
+     */
+    abstract public static function getRoute(): string;
 
     /**
      * @var Request
@@ -61,7 +71,7 @@ trait AdminCrud
     public function create()
     {
         return view('lrcurso_admin::admin.crud.form', [
-            'form' => $this->getForm(action('\\'.static::class.'@store')),
+            'form' => $this->getForm(route($this->getRoute().'.store', $this->params)),
             'title' => $this->getTitle(),
         ]);
     }
@@ -73,7 +83,7 @@ trait AdminCrud
             ->fill($this->request()->all())
             ->save();
 
-        return redirect()->action('\\'.static::class.'@index');
+        return redirect(route($this->getRoute().'.index', $this->params));
     }
 
     /**
@@ -83,9 +93,9 @@ trait AdminCrud
     public function edit($id)
     {
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
-
+        $this->params[] = $id;
         return view('lrcurso_admin::admin.crud.form', [
-            'form' => $this->getForm(action('\\'.static::class.'@update', [$id]), 'PUT', $model),
+            'form' => $this->getForm(route($this->getRoute().'.update', $this->params), 'PUT', $model),
             'title' => $this->getTitle(),
         ]);
     }
@@ -95,7 +105,7 @@ trait AdminCrud
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
         $model->fill($this->request()->all())->save();
 
-        return redirect()->action('\\'.static::class.'@index');
+        return redirect(route($this->getRoute().'.index', $this->params));
     }
 
     public function destroy($id)
@@ -103,7 +113,7 @@ trait AdminCrud
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
         $model->delete();
 
-        return redirect()->action('\\'.static::class.'@index');
+        return redirect(route($this->getRoute().'.index', $this->params));
     }
 
     /**
