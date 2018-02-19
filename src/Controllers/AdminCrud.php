@@ -87,11 +87,11 @@ trait   AdminCrud
     }
 
     /**
-     * @param $id
      * @return View
      */
-    public function edit($id)
+    public function edit()
     {
+        $id = $this->request()->route()->parameters()['id'];
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
         $this->params[] = $id;
         return view('lrcurso_admin::admin.crud.form', [
@@ -100,16 +100,18 @@ trait   AdminCrud
         ]);
     }
 
-    public function update($id)
+    public function update()
     {
+        $id = $this->request()->route()->parameters()['id'];
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
         $model->fill($this->request()->all())->save();
 
         return redirect(route($this->getRoute().'.index', $this->params));
     }
 
-    public function destroy($id)
+    public function destroy()
     {
+        $id = $this->request()->route()->parameters()['id'];
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
         $model->delete();
 
