@@ -36,7 +36,9 @@ class AdminRoute
             Route::get('/', $dashboard_action);
 
             foreach (config('lr-admin.controllers') as $controller) {
-                Route::resource($controller::getRoute(), '\\'.$controller);
+                Route::resource($controller::getRoute(), '\\'.$controller, ['parameters' => [
+                    $controller::getRoute() => 'id'
+                ]]);
             }
         });
     }
