@@ -78,6 +78,10 @@ trait   AdminCrud
 
     public function store()
     {
+        $form = $this->getForm(route($this->getRoute().'.store', $this->params));
+        if (!$form->isValid()) {
+            return redirect()->back()->withErrors($form->getErrors())->withInput();
+        }
         $this
             ->getModel()
             ->fill($this->request()->all())
@@ -104,8 +108,12 @@ trait   AdminCrud
     {
         $id = $this->request()->route()->parameters()['id'];
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
+        $this->params[] = $id;
+        $form = $this->getForm(route($this->getRoute().'.update', $this->params), 'PUT', $model);
+        if (!$form->isValid()) {
+            return redirect()->back()->withErrors($form->getErrors())->withInput();
+        }
         $model->fill($this->request()->all())->save();
-
         return redirect(route($this->getRoute().'.index', $this->params));
     }
 
