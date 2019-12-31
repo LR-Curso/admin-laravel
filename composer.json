@@ -10,6 +10,7 @@
     }
   ],
   "require": {
+    "ext-mbstring": "*",
     "kris/laravel-form-builder": "^1.7",
     "illuminate/database": "^5.5"
   },
