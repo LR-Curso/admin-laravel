@@ -6,13 +6,13 @@
   "authors": [
     {
       "name": "Leandro Rolim",
-      "email": "leandro@lrcurso.com.br"
+      "email": "leandro@viatechno.com.br"
     }
   ],
   "require": {
     "ext-mbstring": "*",
-    "kris/laravel-form-builder": "^1.7",
-    "illuminate/database": "^5.5"
+    "kris/laravel-form-builder": "1.*",
+    "illuminate/database": "^5.5|6.*"
   },
   "autoload": {
     "psr-4": {
