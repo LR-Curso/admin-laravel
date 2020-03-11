@@ -2,6 +2,7 @@
 
 namespace Lrcurso\Admin\Forms;
 
+use Illuminate\Support\Str;
 use Kris\LaravelFormBuilder\Form;
 use Illuminate\Database\Eloquent\Model;
 use Kris\LaravelFormBuilder\FormBuilderTrait;
@@ -40,10 +41,10 @@ trait FormGenerateTrait
             if (! isset($values['options']['label'])) {
                 $values['options']['label'] = trans('admin.crud.'.$field);
             }
-            if (str_contains($field, '_id')) {
+            if (Str::contains($field, '_id')) {
                 $values['type'] = 'entity';
                 $values['options']['empty_value'] = trans('admin.crud.empty_value');
-                $values['options']['class'] = env('MODEL_NS', '\\App\\').studly_case(explode('_id', $field)[0]);
+                $values['options']['class'] = env('MODEL_NS', '\\App\\').Str::studly(explode('_id', $field)[0]);
                 $values['options']['property'] = app($values['options']['class'])->getFillable()[0];
             }
             $form->add($field, $values['type'] ?? 'text', $values['options']);

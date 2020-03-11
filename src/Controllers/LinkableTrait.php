@@ -64,6 +64,6 @@ trait LinkableTrait
             return static::$route;
         }
 
-        return str_slug(snake_case(class_basename(static::class)));
+        return Str::slug(Str::snake(class_basename(static::class)));
     }
 }
