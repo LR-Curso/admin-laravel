@@ -16,5 +16,5 @@ interface LinkableContract
 
     public static function getRoute(): string;
 
-    public function index():View;
+    public function index(): View;
 }

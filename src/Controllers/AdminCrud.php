@@ -2,15 +2,15 @@
 
 namespace Lrcurso\Admin\Controllers;
 
-use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Lrcurso\Admin\Forms\FormGenerateTrait;
 
 /**
  * Class AdminCrud.
  */
-trait   AdminCrud
+trait AdminCrud
 {
     use FormGenerateTrait;
 
@@ -33,7 +33,6 @@ trait   AdminCrud
      * @var Request
      */
     protected $request = null;
-
 
     protected function list_display()
     {
@@ -79,7 +78,7 @@ trait   AdminCrud
     public function store()
     {
         $form = $this->getForm(route($this->getRoute().'.store', $this->params));
-        if (!$form->isValid()) {
+        if (! $form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
         $this
@@ -98,6 +97,7 @@ trait   AdminCrud
         $id = $this->request()->route()->parameters()['id'];
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
         $this->params[] = $id;
+
         return view('lrcurso_admin::admin.crud.form', [
             'form' => $this->getForm(route($this->getRoute().'.update', $this->params), 'PUT', $model),
             'title' => $this->getTitle(),
@@ -110,10 +110,11 @@ trait   AdminCrud
         $model = $this->getModel()->newQuery()->where('id', $id)->firstOrFail();
         $this->params[] = $id;
         $form = $this->getForm(route($this->getRoute().'.update', $this->params), 'PUT', $model);
-        if (!$form->isValid()) {
+        if (! $form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
         $model->fill($this->request()->all())->save();
+
         return redirect(route($this->getRoute().'.index', $this->params));
     }
 

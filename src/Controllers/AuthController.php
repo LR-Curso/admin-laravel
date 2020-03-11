@@ -8,9 +8,9 @@
 
 namespace Lrcurso\Admin\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Factory as Auth;
 use Illuminate\Contracts\Routing\ResponseFactory as Response;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
