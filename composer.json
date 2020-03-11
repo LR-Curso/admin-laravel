@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": "7.2",
+    "php": "^7.2",
     "ext-mbstring": "*",
     "kris/laravel-form-builder": "1.*",
     "illuminate/database": "6.*",
