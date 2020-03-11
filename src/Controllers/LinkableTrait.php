@@ -2,6 +2,8 @@
 
 namespace Lrcurso\Admin\Controllers;
 
+use Illuminate\Support\Str;
+
 /**
  * Trait LinkableTrait.
  */
@@ -40,7 +42,7 @@ trait LinkableTrait
             return static::$title;
         }
 
-        return trans(snake_case(class_basename(static::class).'.title'));
+        return trans(Str::snake(class_basename(static::class).'.title'));
     }
 
     /**
