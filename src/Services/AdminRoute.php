@@ -27,8 +27,7 @@ class AdminRoute
         string $dashboard_action = '\\Lrcurso\\Admin\\Controllers\\DashboardController@index',
         string $prefix = 'admin',
         string $middleware = 'auth.admin'
-    )
-    {
+    ) {
         Route::group([
             'prefix' => $prefix,
             'middleware' => $middleware,
@@ -37,7 +36,7 @@ class AdminRoute
 
             foreach (config('lr-admin.controllers') as $controller) {
                 Route::resource($controller::getRoute(), '\\'.$controller, ['parameters' => [
-                    $controller::getRoute() => 'id'
+                    $controller::getRoute() => 'id',
                 ]]);
             }
         });

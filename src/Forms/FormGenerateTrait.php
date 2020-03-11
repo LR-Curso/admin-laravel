@@ -2,8 +2,8 @@
 
 namespace Lrcurso\Admin\Forms;
 
-use Kris\LaravelFormBuilder\Form;
 use Illuminate\Database\Eloquent\Model;
+use Kris\LaravelFormBuilder\Form;
 use Kris\LaravelFormBuilder\FormBuilderTrait;
 
 trait FormGenerateTrait

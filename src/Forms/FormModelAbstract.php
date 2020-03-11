@@ -8,9 +8,9 @@
 
 namespace Lrcurso\Admin\Forms;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\Form;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class FormModelAbstract.
