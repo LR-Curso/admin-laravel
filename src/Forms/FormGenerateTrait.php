@@ -3,8 +3,8 @@
 namespace Lrcurso\Admin\Forms;
 
 use Illuminate\Support\Str;
-use Kris\LaravelFormBuilder\Form;
 use Illuminate\Database\Eloquent\Model;
+use Kris\LaravelFormBuilder\Form;
 use Kris\LaravelFormBuilder\FormBuilderTrait;
 
 trait FormGenerateTrait
