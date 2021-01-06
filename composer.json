@@ -10,11 +10,11 @@
     }
   ],
   "require": {
-    "php": "^7.2",
+    "php": "^7.2|8.*",
     "ext-mbstring": "*",
     "kris/laravel-form-builder": "1.*",
-    "illuminate/database": "6.*",
-    "illuminate/support": "6.*"
+    "illuminate/database": "6.*|7.*|8.*",
+    "illuminate/support": "6.*|7.*|8.*"
   },
   "autoload": {
     "psr-4": {
